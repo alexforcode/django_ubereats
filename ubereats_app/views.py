@@ -1,5 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
-    return render(request, 'ubereats_app/index.html', {})
+    return redirect(restaurant_home)
+
+
+@login_required(login_url='/restaurant/sign-in/')
+def restaurant_home(request):
+    return render(request, 'restaurant/home.html', {})

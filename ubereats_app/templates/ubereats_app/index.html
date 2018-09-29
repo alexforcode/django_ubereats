@@ -1,15 +1,9 @@
-{% load static %}
+{% extends 'ubereats_app/_base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'ubereats_app/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'ubereats_app/css/style.css' %}">
-    <title>Home</title>
-</head>
-<body>
+{% block title %}Home{% endblock %}
 
-    <script src="{% static 'ubereats_app/js/bootstrap.min.js' %}"></script>
-</body>
-</html>
+{% block content %}
+<div>
+    Index page
+</div>
+{% endblock %}

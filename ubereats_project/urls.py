@@ -14,11 +14,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 from django.urls import path
 
-from ubereats_app.views import index
+from ubereats_app.views import index, restaurant_home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
+    path('restaurant/', restaurant_home, name='restaurant_home'),
+    path('restaurant/sign-in/',
+         auth_views.LoginView.as_view(template_name='restaurant/sign-in.html'),
+         name='restaurant-sign-in'),
+    path('restaurant/sign-out/',
+         auth_views.LogoutView.as_view(next_page='/'),
+         name='restaurant-sign-out'),
 ]
