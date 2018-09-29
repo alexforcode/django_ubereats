@@ -3,6 +3,10 @@
 {% block title %}Restaurant Sign Up{% endblock %}
 
 {% block content %}
-Restaurant Sign Up
-
+<form method="POST">
+    {% csrf_token %}
+    {{ user_form }}
+    {{ restaurant_form }}
+    <button type="submit">Sign Up</button>
+</form>
 {% endblock %}
