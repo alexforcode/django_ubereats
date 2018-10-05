@@ -1,5 +1,7 @@
 {% extends 'ubereats_app/_base_signup.html' %}
 
+{% load bootstrap4 %}
+
 {% block title %}Sign Up{% endblock %}
 
 {% block header %}Restaurant - Sign Up{% endblock %}
@@ -7,8 +9,11 @@
 {% block content %}
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ user_form }}
-    {{ restaurant_form }}
-    <button type="submit">Sign Up</button>
+    {% bootstrap_form user_form %}
+    {% bootstrap_form restaurant_form %}
+    {% buttons %}
+    <button type="submit" class="btn btn-pink float-right">Sign Up</button>
+    {% endbuttons %}
+    <a href="{% url 'restaurant-sign-in' %}">Already have an account?</a>
 </form>
 {% endblock %}
