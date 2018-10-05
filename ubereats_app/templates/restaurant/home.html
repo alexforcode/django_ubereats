@@ -1,10 +1,22 @@
 {% extends 'ubereats_app/_base.html' %}
 
-{% block title %}Restaurant Home{% endblock %}
+{% block title %}Restaurant{% endblock %}
+
+{% block sidebar %}
+Restaurant, Hi {{ request.user }}
+<a href="{% url 'restaurant-sign-out' %}">Log out</a>
+<hr>
+<a href="{% url 'restaurant-account' %}">Account</a>
+-
+<a href="{% url 'restaurant-meal' %}">Meal</a>
+-
+<a href="{% url 'restaurant-order' %}">Order</a>
+-
+<a href="{% url 'restaurant-report' %}">Report</a>
+{% endblock %}
 
 {% block content %}
 <div>
     Restaurant Home
-    <a href="{% url 'restaurant-sign-out' %}">Log out</a>
 </div>
 {% endblock %}
