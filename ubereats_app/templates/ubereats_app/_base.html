@@ -10,8 +10,17 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    {% block sidebar %}{% endblock %}
-    {% block content %}{% endblock %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-2 sidebar">
+                {% block sidebar %}{% endblock %}
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 content">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="{% static 'ubereats_app/js/bootstrap.min.js' %}"></script>
 </body>

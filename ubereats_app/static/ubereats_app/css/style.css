@@ -1,9 +1,14 @@
+body {
+    padding: 50px 0 50px 0;
+    background-color: #edf2f5;
+    overflow: auto;
+}
+
 .bg-blue {
     background-color: #3f3f63;
 }
 
 .card {
-    margin: 50px 0 50px 0;
     padding: 30px;
 }
 
@@ -16,4 +21,75 @@
 .btn-pink:focus {
     color: white;
     background-color: #da4f5d;
+}
+
+
+/* SIDEBAR */
+.sidebar {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0;
+    background-color: #3f3f63;
+    overflow: auto;
+}
+
+.sidebar .user-info {
+    padding: 30px 10px;
+    font-weight: bold;
+    font-size: 15px;
+    background-color: #383957;
+}
+.sidebar .user-info h4 {
+    color: #e0deeb;
+}
+.sidebar .user-info h5 {
+    color: #b6b4c1;
+}
+
+.sidebar .list-group {
+    padding: 0;
+    background-color: #3f3f63;
+}
+.sidebar .list-group .list-group-item,
+.sidebar .list-group .list-group-item:focus {
+    background-color: #3f3f63;
+    color: #b6b4c1;
+    border: 0;
+    padding-right: 30px;
+    padding-left: 60px;
+}
+.sidebar .list-group .list-group-item.active,
+.sidebar .list-group .list-group-item:hover {
+    background-color: #383957;
+    color: #e0deeb;
+}
+.sidebar .list-group .list-group-item:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.sidebar .list-group .list-group-item .badge,
+.sidebar .list-group .list-group-item.active .badge {
+    background-color: #ee5462;
+    color: #e0deeb;
+}
+.sidebar .list-group span {
+    color: #b6b4c1;
+    display: block;
+    margin-top: 20px;
+    padding: 20px 30px;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.sidebar .logout {
+    padding: 30px;
+}
+.sidebar .logout .btn {
+    width: 100%;
+}
+
+.content {
+    padding: 0 40px;
 }
