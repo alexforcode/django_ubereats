@@ -8,8 +8,12 @@ body {
     background-color: #3f3f63;
 }
 
-.card {
-    padding: 30px;
+.text-white {
+    color: white;
+}
+
+.card-body {
+    padding: 16px;
 }
 
 .btn-pink {
@@ -26,13 +30,15 @@ body {
 
 /* SIDEBAR */
 .sidebar {
-    height: 100vh;
     position: fixed;
     top: 0;
+    bottom:0;
     left: 0;
+    z-index: 1000;
     padding: 0;
     background-color: #3f3f63;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .sidebar .user-info {
@@ -89,6 +95,7 @@ body {
 .sidebar .logout .btn {
     width: 100%;
 }
+
 
 .content {
     padding: 0 40px;
