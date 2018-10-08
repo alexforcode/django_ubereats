@@ -7,6 +7,9 @@ body {
 .bg-blue {
     background-color: #3f3f63;
 }
+.bg-gray {
+    background-color: #88a1b2;
+}
 
 .text-white {
     color: white;
@@ -99,4 +102,14 @@ body {
 
 .content {
     padding: 0 40px;
+}
+
+.table,
+.table thead tr th {
+    border-color: #88a1b2;
+}
+.table thead tr th,
+.table thead tr td,
+.table tbody tr td {
+    vertical-align: middle;
 }
