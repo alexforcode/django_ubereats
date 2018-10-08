@@ -1,5 +1,7 @@
 {% extends 'restaurant/home.html' %}
 
-{% block content %}
+{% block title %}Restaurant - Meals{% endblock %}
 
+{% block content %}
+    <a href="{% url 'restaurant-add-meal' %}" class="btn btn-pink">Add Meal</a>
 {% endblock %}

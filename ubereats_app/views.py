@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
-from ubereats_app.forms import RestaurantForm, UserForm, UserFormForEdit
+from ubereats_app.forms import RestaurantForm, UserForm, UserFormForEdit, MealForm
 
 
 def index(request):
@@ -61,6 +61,22 @@ def restaurant_account(request):
 @login_required(login_url='/restaurant/sign-in/')
 def restaurant_meal(request):
     return render(request, 'restaurant/meal.html', {})
+
+
+@login_required(login_url='/restaurant/sign-in/')
+def restaurant_add_meal(request):
+    meal_form = MealForm()
+
+    if request.method == 'POST':
+        meal_form = MealForm(request.POST, request.FILES)
+
+        if meal_form.is_valid():
+            meal = meal_form.save(commit=False)
+            meal.restaurant = request.user.restaurant
+            meal.save()
+            return redirect(restaurant_meal)
+
+    return render(request, 'restaurant/add-meal.html', {'meal_form': meal_form})
 
 
 @login_required(login_url='/restaurant/sign-in/')

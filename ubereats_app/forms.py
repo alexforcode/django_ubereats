@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 
-from ubereats_app.models import Restaurant
+from ubereats_app.models import Restaurant, Meal
 
 
 class UserForm(forms.ModelForm):
@@ -37,3 +37,9 @@ class RestaurantForm(forms.ModelForm):
             'phone',
             'address',
             'logo')
+
+
+class MealForm(forms.ModelForm):
+    class Meta:
+        model = Meal
+        exclude = ('restaurant',)

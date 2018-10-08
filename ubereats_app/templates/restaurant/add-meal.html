@@ -1,0 +1,24 @@
+{% extends 'restaurant/home.html' %}
+
+{% load bootstrap4 %}
+
+{% block title %}Restaurant - Add Meal{% endblock %}
+
+{% block content %}
+    <div class="col-lg-offset-2 col-lg-8">
+        <div class="card">
+            <div class="card-header bg-blue">
+                <h4 class="text-center text-white">New Meal</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% bootstrap_form meal_form %}
+                    {% buttons %}
+                    <button type="submit" class="btn btn-pink">Create</button>
+                    {% endbuttons %}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
