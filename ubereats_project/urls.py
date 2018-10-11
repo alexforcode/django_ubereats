@@ -52,8 +52,12 @@ urlpatterns = [
     path('restaurant/order/', views.restaurant_order, name='restaurant-order'),
     path('restaurant/report/', views.restaurant_report, name='restaurant-report'),
 
-    # apis:
+    # customers apis:
     path('api/customer/restaurants/', apis.customer_get_restaurants, {}),
+    path('api/customer/meals/<int:restaurant_id>', apis.customer_get_meals, {}),
+    path('api/customer/order/add/', apis.customer_add_order, {}),
+    path('api/customer/order/latest/', apis.customer_get_latest_order, {}),
+
     # facebook authentication:
     path('api/social/', include('rest_framework_social_oauth2.urls')),
 
