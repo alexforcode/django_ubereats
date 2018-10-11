@@ -19,7 +19,7 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
-from ubereats_app import views
+from ubereats_app import views, apis
 
 urlpatterns = [
     # django admin page:
@@ -30,9 +30,6 @@ urlpatterns = [
 
     # restaurant index page:
     path('restaurant/', views.restaurant_home, name='restaurant_home'),
-
-    # facebook authentication:
-    path('api/social/', include('rest_framework_social_oauth2.urls')),
 
     # restaurant sigh up:
     path('restaurant/sign-up',
@@ -54,5 +51,10 @@ urlpatterns = [
     path('restaurant/meal/edit/<int:meal_id>/', views.restaurant_edit_meal, name='restaurant-edit-meal'),
     path('restaurant/order/', views.restaurant_order, name='restaurant-order'),
     path('restaurant/report/', views.restaurant_report, name='restaurant-report'),
+
+    # apis:
+    path('api/customer/restaurants/', apis.customer_get_restaurants, {}),
+    # facebook authentication:
+    path('api/social/', include('rest_framework_social_oauth2.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
