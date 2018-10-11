@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from ubereats_app.models import Restaurant
+from ubereats_app.models import Restaurant, Meal
 
 
 class RestaurantSerializer(serializers.ModelSerializer):
@@ -14,3 +14,16 @@ class RestaurantSerializer(serializers.ModelSerializer):
     class Meta:
         model = Restaurant
         fields = ('id', 'name', 'phone', 'address', 'logo')
+
+
+class MealsSerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField()
+
+    def get_image(self, meal):
+        request = self.context.get('request')
+        image_url = meal.image.url
+        return request.build_absolute_uri(image_url)
+
+    class Meta:
+        model = Meal
+        fields = ('id', 'name', 'short_description', 'image', 'price')

@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 
-from ubereats_app.models import Restaurant
-from ubereats_app.serializers import RestaurantSerializer
+from ubereats_app.models import Restaurant, Meal
+from ubereats_app.serializers import RestaurantSerializer, MealsSerializer
 
 
 def customer_get_restaurants(request):
@@ -14,8 +14,14 @@ def customer_get_restaurants(request):
     return JsonResponse({'restaurants': restaurants})
 
 
-def customer_get_meals(request):
-    return JsonResponse({})
+def customer_get_meals(request, restaurant_id):
+    meals = MealsSerializer(
+        Meal.objects.filter(restaurant_id=restaurant_id).order_by('-id'),
+        many=True,
+        context={'request': request}
+    ).data
+
+    return JsonResponse({'meals': meals})
 
 
 def customer_add_order(request):
